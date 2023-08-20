@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-def index_range(page, page_size):
+def index_range(page, page_size)->tuple:
     """ create index_range """
-    p = page - 1
-    start = p * page_size
-    end = page * page_size
-    return start, end
+    return (page - 1) * page_size, page * page_size
