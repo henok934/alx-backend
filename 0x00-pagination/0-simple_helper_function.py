@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 """
 File: 0-simple_helper_function.py
-Desc: This module contains a python code related to backend
-      pagination.
-Author: Gizachew Bayness
-Date Created: Feb 20, 2022
 """
 
 
