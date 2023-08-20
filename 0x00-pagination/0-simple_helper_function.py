@@ -11,4 +11,4 @@ Date Created: Feb 20, 2022
 def index_range(page, page_size):
     """Helper function"""
     last_page = page_size * page
-    return (last_page - page_size, las
+    return (last_page - page_size, last_page)
