@@ -8,15 +8,14 @@ from flask_babel import Babel
 
 class Config(object):
     """create config class"""
-    LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE = 'fr'
-    BABEL_DEFAULT_TIMEZONE = 'UTC'
-
 
 app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
+app.config['LANGUAGES'] = ['en', 'fr']
+app.config['SUPPORTED_LANGUAGES'] = ['en', 'fr']
+app.config['DEFAULT_LANGUAGE'] = 'en'
 
 @app.route("/", strict_slashes=False)
 def index():
@@ -26,14 +25,12 @@ def index():
 
 @babel.localeselector
 def get_locale():
-    """Gets best fmatch locale according to request
-
+    """Gets best match locale according to request
     locale = request.args.get('locale')
     if locale and locale in app.config['LANGUAGES']:
-        return locale
-    """
+        if locale == fr:"""
     return 'fr'
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config['SUPPORTED_LANGUAGES'], default=app.config['DEFAULT_LANGUAGE'])
 
 
 if __name__ == "__main__":
