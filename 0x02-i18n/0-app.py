@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    """didplays a basic hello world message"""
+    """create index method for retrieve the index value"""
     return render_template("0-index.html")
 
 
