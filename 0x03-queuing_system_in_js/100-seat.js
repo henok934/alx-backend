@@ -3,7 +3,6 @@ import express from 'express';
 import { promisify } from 'util';
 import { createQueue } from 'kue';
 import { createClient } from 'redis';
-
 const app = express();
 const client = createClient({ name: 'reserve_seat' });
 const queue = createQueue();
